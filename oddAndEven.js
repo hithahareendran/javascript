@@ -1,4 +1,4 @@
-function oddEven(arr){
+function oddEven(arr) {
     let num = Number(arr[0])
     if (num % 2 == 0)
         console.log('even')

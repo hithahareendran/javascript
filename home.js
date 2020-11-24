@@ -1,2 +1,2 @@
-let values = ['a','b','c'];
+let values = ['a', 'b', 'c'];
 console.log(values);
