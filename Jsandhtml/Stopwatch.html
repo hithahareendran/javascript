@@ -1,0 +1,40 @@
+<html>
+
+<head>
+    <title>Show More Text</title>
+</head>
+
+<body>
+    <div id="time" style="border:3px solid blue; text-align:center; font-size:2em; margin-bottom:10px">00:00</div>
+    <button id="startBtn">Start</button>
+    <button id="stopBtn" disabled="true">Stop</button>
+    <script>
+        window.onload =  () => {
+        let time = 0, interval;
+        let startBtn = document.getElementById("startBtn");
+        let stopBtn = document.getElementById("stopBtn");
+ 
+        startBtn.addEventListener("click", function () {
+            interval = window.setInterval(increaseTime, 1000);
+            startBtn.disabled = true;
+            stopBtn.disabled = false;
+        });
+ 
+        stopBtn.addEventListener("click", function () {
+            window.clearInterval(interval);
+            startBtn.disabled = false;
+            stopBtn.disabled = true;
+        });
+ 
+        function increaseTime() {
+            time++;
+            let minutes = ("0" + Math.trunc(time / 60)).slice(-2);
+            let seconds = ("0" + (time % 60)).slice(-2);
+            document.getElementById("time").innerHTML = minutes+":"+seconds
+        }
+    }
+
+    </script>
+</body>
+
+</html>
